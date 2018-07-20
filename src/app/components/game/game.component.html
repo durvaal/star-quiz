@@ -1,0 +1,26 @@
+<header class="conteiner-fluid">
+	<div class="row">
+		<div class="col">
+			<img id="logo" src="assets/img/darth-vader.png" alt="Darth Vader Mask">
+			<h1 class="title-game">StarQuiz!</h1>
+		</div>
+
+		<div class="col-md-3 jumbotron scoreboard">
+			<p>Pontos</p>
+			<span>{{ pontuacao }}</span>
+		</div>
+		<div class="col-md-3 jumbotron scoreboard">
+			<p>Cronômetro</p>
+			<span id="minuto">02:</span>
+			<span id="segundo">00</span>
+		</div>
+	</div>
+</header>
+
+<section class="conteiner-fluid">
+	<p class="alert alert-info phrase-initial">"Faça. Ou não faça. Não existe a tentativa."
+		<b>Mestre Yoda</b>
+	</p>
+
+	<app-box-personage (pontuacao)="marcarPonto($event)" (detalhe)="verDetalhes($event)"></app-box-personage>
+</section>

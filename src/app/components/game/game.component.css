@@ -1,0 +1,54 @@
+header {
+    background-color: #E9ECEF;
+}
+
+img#logo {
+    float: left;
+    margin: 30px;
+    width: 20%;
+}
+
+.title-game {
+    font-size: 55pt;
+    margin-top: 40px;
+}
+
+.scoreboard > p {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.scoreboard > span {
+    font-size: 30pt;
+}
+
+.jumbotron {
+    background-color: #FCFDF9;
+    height: 155px;
+    margin: 10px;
+    padding: 1rem 1rem;
+    text-align: center;
+}
+
+/* Section */
+
+.phrase-initial {
+    margin: 3px 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 1050px) {
+    img#logo {
+        display: block;
+        float: none;
+        margin: 30px auto;
+        width: 30%;
+    }
+
+    .title-game {
+        font-size: 45pt;
+        margin-top: 30px;
+        text-align: center;
+    }
+}

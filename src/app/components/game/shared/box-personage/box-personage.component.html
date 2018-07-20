@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col">
+    <div class="card person">
+      <img class="card-img-top" src="assets/img/download.svg" alt="Card image cap">
+      <div class="card-body">
+
+        <form [formGroup]="form">
+          <input type="text" placeholder="Nome do personagem" class="form-control" formControlName="reply">
+
+          <button type="button" class="btn btn-success action-quiz" (click)="marcarPonto()" [disabled]="!form.valid">
+            <img src="assets/img/pencil.png" alt="Reply quiz">
+          </button>
+
+          <button type="button" class="btn btn-info action-quiz" (click)="verDetalhes()" data-toggle="modal" data-target="#exampleModal">
+            <img src="assets/img/loupe.png" alt="Detail person">
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal-generic></app-modal-generic>

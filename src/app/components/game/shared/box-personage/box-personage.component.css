@@ -1,0 +1,13 @@
+.person {
+    margin: 20px;
+    width: 18rem;
+}
+
+.action-quiz {
+    margin: 0 2px;
+    width: 48%;
+}
+
+input {
+    margin-bottom: 5px;
+}
