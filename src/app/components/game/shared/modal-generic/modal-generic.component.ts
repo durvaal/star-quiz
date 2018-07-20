@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-generic',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-generic.component.css']
 })
 export class ModalGenericComponent implements OnInit {
+
+  @Input() personageDetail;
 
   constructor() { }
 

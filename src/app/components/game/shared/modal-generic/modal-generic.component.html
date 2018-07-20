@@ -3,13 +3,59 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detalhes de</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Detalhes do personagem</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <img id="logo" src="assets/img/darth-vader.png" alt="Mask Darth Vader">
+        <img src="assets/img/darth-vader.png" alt="Mask Darth Vader">
+
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th class="title-detail">Propriedade</th>
+              <th class="title-detail">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Nome</th>
+              <td>???</td>
+            </tr>
+            <tr>
+              <th>Altura</th>
+              <td>{{ personageDetail["height"] }}</td>
+            </tr>
+            <tr>
+              <th>Peso</th>
+              <td>{{ personageDetail["mass"] }}</td>
+            </tr>
+            <tr>
+              <th>Cor do cabelo</th>
+              <td>{{ personageDetail["hair_color"] }}</td>
+            </tr>
+            <tr>
+              <th>Cor da pele</th>
+              <td>{{ personageDetail["skin_color"] }}</td>
+            </tr>
+            <tr>
+              <th>Cor dos olhos</th>
+              <td>{{ personageDetail["eye_color"] }}</td>
+            </tr>
+            <tr>
+              <th>Ano de Nascimento</th>
+              <td>{{ personageDetail["birth_year"] }}</td>
+            </tr>
+            <tr>
+              <th>Gênero</th>
+              <td>{{ personageDetail["gender"] }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <!-- <p>{{ personageDetail | json }}</p> -->
       </div>
     </div>
   </div>

@@ -1,5 +1,28 @@
-img#logo {
-    float: left;
-    margin: 30px;
-    width: 20%;
+img {
+    margin: 30px auto;
+    width: 30%;
+    display: block;
+}
+
+td {
+    text-align: right;
+}
+
+.title-detail {
+    background-color: #E9ECEF;
+    color: #212529;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: #fcfdf9;
+}
+
+.modal-header {
+    background-color: #E9ECEF;
+}
+
+h5 {
+    font-weight: bold;
+    text-transform: uppercase;
 }
