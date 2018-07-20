@@ -1,0 +1,53 @@
+img {
+    display: block;
+    margin: 30px auto;
+    width: 20%;
+}
+
+h1, h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+#info-game {
+    background-color: #ae5b05;
+    padding: 2rem;
+}
+
+#info-game > h1:nth-child(1) {
+    color: #040105;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+#info-game > p:nth-child(2) {
+    color: #fff;
+    font-size: 17pt;
+    text-align: center;
+}
+
+.info {
+    background-color: #FFFFFF;
+    margin: 10px;
+    padding: 2rem;
+}
+
+.box-info {
+    margin-top: 15px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    margin: 20px auto 0;
+    width: 50%;
+}
+
+@media screen and (max-width: 468px) {
+    button {
+        width: 100%;
+    }
+}
