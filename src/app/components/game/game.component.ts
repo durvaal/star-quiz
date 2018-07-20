@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { GenericServiceService } from './shared/generic-service.service';
+
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-game',
@@ -7,26 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  private pontuacao: number = 0;
-  private ajudaUtilizada: boolean = false;
+  private pontuation: number = 0;
+  private helpUsed: boolean = false;
+  private personages: Array<any> = [];
+  private indicePersonage: number = 0;
+  private repliedCorrect: boolean = false;
 
-  constructor() { }
+  constructor(private service: GenericServiceService) { }
 
   ngOnInit() {
     this.cronometro();
+    this.getPersonages();
   }
 
-  marcarPonto(reply) {
-    if (this.ajudaUtilizada) {
-      this.pontuacao += 5;
-      this.ajudaUtilizada = false;
-    } else {
-      this.pontuacao += 10;
+  getPersonages(): void {
+    for (let i = 1; i < 9; i++) {
+      this.service.getPersonages(i)
+        .subscribe(
+          res => {
+            this.personages.push(res);
+          }
+        )
+        this.indicePersonage++;
+      }
+  }
+
+  setPontuation(reply, personage) {
+    if(reply.toUpperCase() == personage.toUpperCase()) {
+      this.repliedCorrect = true;
+      if (this.helpUsed) {
+        this.pontuation += 5;
+        this.helpUsed = false;
+      } else {
+        this.pontuation += 10;
+      }
     }
   }
 
-  verDetalhes(status) {
-    this.ajudaUtilizada = status;
+  setDetail(status) {
+    if (status) this.helpUsed = status;
   }
 
   cronometro() {
@@ -41,7 +64,7 @@ export class GameComponent implements OnInit {
         document.getElementById("segundo").innerHTML = "0" + second;
       } else {
         document.getElementById("segundo").innerHTML = second.toString();
-      } 
+      }
 
       if (minute < 10) document.getElementById("minuto").innerHTML = "0" + minute + ":";
 

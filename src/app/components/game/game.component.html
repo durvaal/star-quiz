@@ -7,7 +7,7 @@
 
 		<div class="col-md-3 jumbotron scoreboard">
 			<p>Pontos</p>
-			<span>{{ pontuacao }}</span>
+			<span>{{ pontuation }}</span>
 		</div>
 		<div class="col-md-3 jumbotron scoreboard">
 			<p>Cronômetro</p>
@@ -22,5 +22,7 @@
 		<b>Mestre Yoda</b>
 	</p>
 
-	<app-box-personage (pontuacao)="marcarPonto($event)" (detalhe)="verDetalhes($event)"></app-box-personage>
+	<div class="row">
+		<app-box-personage class="col" (pontuacao)="setPontuation($event, personage['name'])" (detalhe)="setDetail($event)" [personageDetail]="personage" *ngFor="let personage of personages"></app-box-personage>
+	</div>
 </section>
