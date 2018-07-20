@@ -17,7 +17,6 @@ h1, h2 {
 #info-game > h1:nth-child(1) {
     color: #040105;
     font-family: sans-serif;
-    text-transform: uppercase;
 }
 
 #info-game > p:nth-child(2) {
