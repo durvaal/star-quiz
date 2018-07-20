@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,8 @@ export class BoxPersonageComponent implements OnInit {
 
   private form: FormGroup;
   @Output() detalhe = new EventEmitter();
-  @Output() pontuacao = new EventEmitter();
+  @Output() pontuacao = new EventEmitter(); 
+  @Input() personageDetail;
 
   constructor() { }
 
@@ -24,12 +25,12 @@ export class BoxPersonageComponent implements OnInit {
     });
   }
 
-  marcarPonto() {
+  setPontuation() {
     const reply = this.form.get("reply").value;
     this.pontuacao.emit(reply);
   }
 
-  verDetalhes() {
+  setDetail() {
     this.detalhe.emit(true);
   }
 
