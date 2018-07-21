@@ -23,6 +23,9 @@
 	</p>
 
 	<div class="row">
-		<app-box-personage class="col" (pontuation)="setPontuation($event, personage['name'])" (details)="setDetail($event)" [personageDetail]="personage" *ngFor="let personage of personages"></app-box-personage>
+		<app-box-personage class="col" (pontuation)="setPontuation($event, personage['name'])" (details)="setDetail($event)" [personageDetail]="personage"
+		 *ngFor="let personage of personages[0]"></app-box-personage>
 	</div>
 </section>
+
+<app-pagination (previous)="previousPersonage()" (next)="nextPersonage()" (selectPage)="setPage($event)" [actualPage]="actualPage"></app-pagination>

@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { GameComponent } from './components/game/game.component';
 import { BoxPersonageComponent } from './components/game/shared/box-personage/box-personage.component';
 import { ModalGenericComponent } from './components/game/shared/modal-generic/modal-generic.component';
+import { PaginationComponent } from './components/game/shared/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ModalGenericComponent } from './components/game/shared/modal-generic/mo
     WelcomeComponent,
     GameComponent,
     BoxPersonageComponent,
-    ModalGenericComponent
+    ModalGenericComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

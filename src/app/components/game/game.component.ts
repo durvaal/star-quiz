@@ -17,6 +17,10 @@ export class GameComponent implements OnInit {
   private personages: Array<any> = [];
   private indicePersonage: number = 0;
   private repliedCorrect: boolean = false;
+  private actualPage: number = 1;
+  private previousPage: number = 0;
+  private nextPage: number = 2;
+  private accessPage: number = 0;
 
   @ViewChild(BoxPersonageComponent)
   modalResult: BoxPersonageComponent;
@@ -25,19 +29,20 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.cronometro();
-    this.getPersonages();
+    this.getPersonages(this.actualPage);
   }
 
-  getPersonages(): void {
-    for (let i = 1; i < 9; i++) {
-      this.service.getPersonages(i)
-        .subscribe(
-          res => {
-            this.personages.push(res);
-          }
-        )
-      this.indicePersonage++;
-    }
+  getPersonages(actualPage): void {
+    this.personages = [];
+    this.service.getPersonages(actualPage)
+      .subscribe(
+        res => {
+          this.personages.push(res["results"]);
+          this.personages[0].pop();
+          this.personages[0].pop();
+        }
+      )
+
     console.log(this.personages);
   }
 
@@ -80,5 +85,31 @@ export class GameComponent implements OnInit {
 
       second--;
     }, 1000);
+  }
+
+  previousPersonage() {
+    if (this.actualPage > 1) {
+      this.previousPage--;
+      this.nextPage = this.actualPage;
+      this.actualPage--;
+
+      this.getPersonages(this.actualPage);
+    }
+  }
+
+  nextPersonage() {
+    this.nextPage++;
+    this.previousPage = this.actualPage;
+    this.actualPage++;
+
+    this.getPersonages(this.actualPage);
+  }
+
+  setPage(page) {
+    this.actualPage = page;
+    this.nextPage = page += 1;
+    this.previousPage = page-= 2;
+
+    this.getPersonages(this.actualPage);
   }
 }

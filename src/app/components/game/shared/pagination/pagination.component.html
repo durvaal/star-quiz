@@ -1,0 +1,40 @@
+<nav>
+	<ul class="pagination justify-content-center">
+		<li class="page-item" [ngClass]="{'disabled' : actualPage == 1 ? true : false}">
+			<!-- disabled -->
+			<button class="page-link" (click)="previousPersonage()">&laquo;</button>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 1 ? true : false}">
+			<a class="page-link" (click)="setPage(1)">1
+				<span class="sr-only">(current)</span>
+			</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 2 ? true : false}">
+			<a class="page-link" (click)="setPage(2)">2</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 3 ? true : false}">
+			<a class="page-link" (click)="setPage(3)">3</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 4 ? true : false}">
+			<a class="page-link" (click)="setPage(4)">4</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 5 ? true : false}">
+			<a class="page-link" (click)="setPage(5)">5</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 6 ? true : false}">
+			<a class="page-link" (click)="setPage(6)">6</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 7 ? true : false}">
+			<a class="page-link" (click)="setPage(7)">7</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 8 ? true : false}">
+			<a class="page-link" (click)="setPage(8)">8</a>
+		</li>
+		<li class="page-item" [ngClass]="{'active' : actualPage == 9 ? true : false}">
+			<a class="page-link" (click)="setPage(9)">9</a>
+		</li>
+		<li class="page-item" [ngClass]="{'disabled' : actualPage == 9 ? true : false}">
+			<button class="page-link" (click)="nextPersonage()">&raquo;</button>
+		</li>
+	</ul>
+</nav>
