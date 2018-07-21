@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -9,9 +9,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class BoxPersonageComponent implements OnInit {
 
   private form: FormGroup;
-  @Output() detalhe = new EventEmitter();
-  @Output() pontuacao = new EventEmitter(); 
+  private result: number = 0;
+  @Output() details = new EventEmitter();
+  @Output() pontuation = new EventEmitter();
   @Input() personageDetail;
+  @ViewChild("modalResult") private modalResult;
+  @ViewChild("modalNext") private modalNext;
 
   constructor() { }
 
@@ -27,11 +30,20 @@ export class BoxPersonageComponent implements OnInit {
 
   setPontuation() {
     const reply = this.form.get("reply").value;
-    this.pontuacao.emit(reply);
+    this.pontuation.emit(reply);
   }
 
   setDetail() {
-    this.detalhe.emit(true);
+    this.details.emit(true);
+  }
+
+  openModalResult(result) {
+    this.result = result;
+    this.modalResult.nativeElement.click();
+  }
+
+  openModalNext(open) {
+    this.modalNext.nativeElement.click();
   }
 
 }

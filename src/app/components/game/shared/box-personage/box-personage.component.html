@@ -8,11 +8,15 @@
         <img src="assets/img/pencil.png" alt="Reply quiz">
       </button>
 
-      <button type="button" class="btn btn-info action-quiz" (click)="setDetail()" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-info action-quiz" (click)="setDetail()" data-toggle="modal" data-target="#modalDatails">
         <img src="assets/img/loupe.png" alt="Detail person">
       </button>
+
+      <button class="button-none" type="button" #modalResult data-toggle="modal" data-target="#modalResult"></button>
+
+      <button class="button-none" type="button" #modalNext data-toggle="modal" data-target="#modalNext"></button>
     </form>
   </div>
 </div>
 
-<app-modal-generic [personageDetail]="personageDetail"></app-modal-generic>
+<app-modal-generic [personageDetail]="personageDetail" [pontuation]="result" (openModalNext)="openModalNext($event)"></app-modal-generic>

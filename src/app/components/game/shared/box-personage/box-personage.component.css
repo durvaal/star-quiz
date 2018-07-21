@@ -11,3 +11,7 @@
 input {
     margin-bottom: 5px;
 }
+
+.button-none {
+    display: none;
+}
