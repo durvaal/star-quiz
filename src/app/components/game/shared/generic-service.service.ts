@@ -14,8 +14,8 @@ export class GenericServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getPersonages(id) {
-    return this.http.get(this.baseUrl + 'people/' + id)
+  getPersonages(page) {
+    return this.http.get(this.baseUrl + 'people/?page=' + page)
       .pipe(map(data => data));
   }
 
