@@ -1,62 +1,108 @@
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detalhes do personagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <img src="assets/img/darth-vader.png" alt="Mask Darth Vader">
+<!-- Modal Details -->
+<div class="modal fade" id="modalDatails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Detalhes do personagem</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<img src="assets/img/darth-vader.png" alt="Mask Darth Vader">
 
-        <table class="table table-hover table-bordered">
-          <thead>
-            <tr>
-              <th class="title-detail">Propriedade</th>
-              <th class="title-detail">Valor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Nome</th>
-              <td>???</td>
-            </tr>
-            <tr>
-              <th>Altura</th>
-              <td>{{ personageDetail["height"] }}</td>
-            </tr>
-            <tr>
-              <th>Peso</th>
-              <td>{{ personageDetail["mass"] }}</td>
-            </tr>
-            <tr>
-              <th>Cor do cabelo</th>
-              <td>{{ personageDetail["hair_color"] }}</td>
-            </tr>
-            <tr>
-              <th>Cor da pele</th>
-              <td>{{ personageDetail["skin_color"] }}</td>
-            </tr>
-            <tr>
-              <th>Cor dos olhos</th>
-              <td>{{ personageDetail["eye_color"] }}</td>
-            </tr>
-            <tr>
-              <th>Ano de Nascimento</th>
-              <td>{{ personageDetail["birth_year"] }}</td>
-            </tr>
-            <tr>
-              <th>Gênero</th>
-              <td>{{ personageDetail["gender"] }}</td>
-            </tr>
-          </tbody>
-        </table>
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<th class="title-detail">Propriedade</th>
+							<th class="title-detail">Valor</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Nome</th>
+							<td>???</td>
+						</tr>
+						<tr>
+							<th>Altura</th>
+							<td>{{ personageDetail["height"] }}</td>
+						</tr>
+						<tr>
+							<th>Peso</th>
+							<td>{{ personageDetail["mass"] }}</td>
+						</tr>
+						<tr>
+							<th>Cor do cabelo</th>
+							<td>{{ personageDetail["hair_color"] }}</td>
+						</tr>
+						<tr>
+							<th>Cor da pele</th>
+							<td>{{ personageDetail["skin_color"] }}</td>
+						</tr>
+						<tr>
+							<th>Cor dos olhos</th>
+							<td>{{ personageDetail["eye_color"] }}</td>
+						</tr>
+						<tr>
+							<th>Ano de Nascimento</th>
+							<td>{{ personageDetail["birth_year"] }}</td>
+						</tr>
+						<tr>
+							<th>Gênero</th>
+							<td>{{ personageDetail["gender"] }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
 
+<!-- Modal Result -->
+<div class="modal fade" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Quiz finalizado!</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div id="modal-result" class="modal-body">
+				<div class="jumbotron">
+					<p>Parabéns, jovem Jedi!</p>
+					<span>{{ pontuation }}</span><br>
+					<span>{{ pontuation > 1 ? ' pontos' : ' ponto' }}</span>
+				</div>
+				<p>Preencha o formulário abaixo para salvar sua pontuação:</p>
 
-        <!-- <p>{{ personageDetail | json }}</p> -->
-      </div>
-    </div>
-  </div>
+				<form [formGroup]="form">
+					<label for="name">Nome</label>
+					<input type="text" class="form-control" formControlName="name" id="name" placeholder="Darth Vader">
+
+					<label for="email">E-mail</label>
+					<input type="email" class="form-control" formControlName="email" id="email" placeholder="darth.vader@starwars.com">
+
+					<button class="btn btn-success btn-block" data-dismiss="modal" aria-label="Close" (click)="saveResult()" [disabled]="!form.valid">Salvar</button>
+					<button class="btn btn-info btn-block" data-dismiss="modal" aria-label="Close" (click)="playAgain()">Jogar novamente</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Next -->
+<div class="modal fade" id="modalNext" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">{{ name }}, você ainda pode!</h5>
+			</div>
+			<div class="modal-body">
+				<button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close">Jogar Novamente</button>
+				<button class="btn btn-info btn-block">Ranking</button>
+				<button class="btn btn-danger btn-block" data-dismiss="modal" aria-label="Close" [routerLink]="['/home']" routerLinkActive="active">Sair</button>
+			</div>
+		</div>
+	</div>
 </div>
