@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GenericServiceService } from './shared/generic-service.service';
 
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { BoxPersonageComponent } from './shared/box-personage/box-personage.component';
 
 @Component({
   selector: 'app-game',
@@ -16,6 +17,9 @@ export class GameComponent implements OnInit {
   private personages: Array<any> = [];
   private indicePersonage: number = 0;
   private repliedCorrect: boolean = false;
+
+  @ViewChild(BoxPersonageComponent)
+  modalResult: BoxPersonageComponent;
 
   constructor(private service: GenericServiceService) { }
 
@@ -32,12 +36,13 @@ export class GameComponent implements OnInit {
             this.personages.push(res);
           }
         )
-        this.indicePersonage++;
-      }
+      this.indicePersonage++;
+    }
+    console.log(this.personages);
   }
 
   setPontuation(reply, personage) {
-    if(reply.toUpperCase() == personage.toUpperCase()) {
+    if (reply.toUpperCase() == personage.toUpperCase()) {
       this.repliedCorrect = true;
       if (this.helpUsed) {
         this.pontuation += 5;
@@ -58,7 +63,12 @@ export class GameComponent implements OnInit {
     let minute = 1;
 
     intervalo = window.setInterval(() => {
-      if (second == 0) { minute--; second = 59; }
+      if (minute == 0 && second == 0) {
+        clearInterval(intervalo);
+        this.modalResult.openModalResult(this.pontuation);
+      } else if (second == 0) {
+        minute--; second = 59;
+      }
 
       if (second < 10) {
         document.getElementById("segundo").innerHTML = "0" + second;
