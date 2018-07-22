@@ -15,3 +15,7 @@ input {
 .button-none {
     display: none;
 }
+
+.img-personage {
+    height: 350px;
+}

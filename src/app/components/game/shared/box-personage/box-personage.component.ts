@@ -16,6 +16,8 @@ export class BoxPersonageComponent implements OnInit {
   @ViewChild("modalResult") private modalResult;
   @ViewChild("modalNext") private modalNext;
 
+  @Input() pathImage;
+
   constructor() { }
 
   ngOnInit() {
@@ -45,5 +47,4 @@ export class BoxPersonageComponent implements OnInit {
   openModalNext(open) {
     this.modalNext.nativeElement.click();
   }
-
 }

@@ -1,5 +1,5 @@
 <div class="card person">
-  <img class="card-img-top" src="assets/img/download.svg" alt="Card image cap">
+  <img class="card-img-top img-personage" [src]="pathImage[0]['path_image']" alt="Card image cap">
   <div class="card-body">
     <form [formGroup]="form">
       <input type="text" placeholder="Nome do personagem" class="form-control" formControlName="reply">
