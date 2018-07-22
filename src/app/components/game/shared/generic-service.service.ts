@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from "rxjs";
 import { HttpClient } from '@angular/common/http';
 
-import { map } from 'rxjs/operators';
+import { Cacheable } from 'ngx-cacheable';
 
 
 @Injectable({
@@ -10,13 +10,13 @@ import { map } from 'rxjs/operators';
 })
 export class GenericServiceService {
 
-  private baseUrl = 'https://swapi.co/api/';
+  private baseUrl = 'https://swapi.co/api';
 
   constructor(private http: HttpClient) { }
 
+  @Cacheable()
   getPersonages(page) {
-    return this.http.get(this.baseUrl + 'people/?page=' + page)
-      .pipe(map(data => data));
+    return this.http.get(`${this.baseUrl}/people/?page=${page}`);
   }
 
 }
