@@ -45,8 +45,41 @@ button {
     width: 50%;
 }
 
+.alert {
+    border-radius: 10px;
+    box-shadow: -4px 4px #888888;
+    margin: 10px 17%;
+    position: absolute;
+    width: 21%;
+}
+
+.alert:after {
+    border: 24px solid transparent;
+    border-left-color: #e2e3e5;
+    content: "";
+    position: absolute;
+    right: -44px;
+    top: 0;
+}
+
+.alert > p:nth-child(2) {
+    font-weight: bold;
+    margin-bottom: 0;
+    text-align: right;
+}
+
 @media screen and (max-width: 468px) {
+    img {
+        width: 30%;
+    }
+    
     button {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .alert {
+        display: none;
     }
 }
