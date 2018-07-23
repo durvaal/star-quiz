@@ -13,6 +13,7 @@ export class ModalGenericComponent implements OnInit {
   @Input() personageDetail;
   @Input() pontuation;
   @Output() openModalNext = new EventEmitter();
+  @Output() reloadGame = new EventEmitter();
 
   constructor() { 
   }
@@ -58,6 +59,11 @@ export class ModalGenericComponent implements OnInit {
   }
 
   playAgain() {
-    window.location.reload();
+    this.clearForm();
+    this.reloadGame.emit();
+  }
+
+  clearForm() {
+    this.form.reset();
   }
 }

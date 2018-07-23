@@ -13,6 +13,7 @@ export class BoxPersonageComponent implements OnInit {
   private reply: boolean;
   @Output() details = new EventEmitter();
   @Output() pontuation = new EventEmitter();
+  @Output() reloadGame = new EventEmitter();
   @Input() personageDetail;
   @Input() pathImage;
   @Input() personage;
@@ -48,10 +49,15 @@ export class BoxPersonageComponent implements OnInit {
 
   openModalResult(result) {
     this.result = result;
+    this.modalResult.c
     this.modalResult.nativeElement.click();
   }
 
   openModalNext(open) {
     this.modalNext.nativeElement.click();
+  }
+
+  playAgain() {
+    this.reloadGame.emit();
   }
 }

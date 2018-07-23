@@ -16,6 +16,7 @@ export class GameComponent implements OnInit {
   private actualPage: number = 1;
   private previousPage: number = 0;
   private nextPage: number = 2;
+  private restart: boolean = false;
 
   @ViewChild(BoxPersonageComponent)
   modalResult: BoxPersonageComponent;
@@ -77,6 +78,7 @@ export class GameComponent implements OnInit {
     let intervalo;
     let second = 59;
     let minute = 1;
+    this.pontuation = 0;
 
     intervalo = window.setInterval(() => {
       if (minute == 0 && second == 0) {
