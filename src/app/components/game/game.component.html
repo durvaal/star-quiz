@@ -24,7 +24,7 @@
 
 	<div class="row">
 		<app-box-personage class="col" (pontuation)="setPontuation($event, personage['name'])" (details)="setDetail($event)" [personageDetail]="personage"
-		 *ngFor="let personage of personages[0]" [pathImage]=[personage]></app-box-personage>
+		 *ngFor="let personage of personages[0]" [pathImage]=[personage] [personage]=[personage]></app-box-personage>
 	</div>
 </section>
 

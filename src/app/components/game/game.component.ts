@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GenericServiceService } from './shared/generic-service.service';
 
-import { HttpClient } from '@angular/common/http';
 import { BoxPersonageComponent } from './shared/box-personage/box-personage.component';
 
 @Component({
@@ -14,12 +13,9 @@ export class GameComponent implements OnInit {
   private pontuation: number = 0;
   private helpUsed: boolean = false;
   private personages: Array<any> = [];
-  private indicePersonage: number = 0;
-  private repliedCorrect: boolean = false;
   private actualPage: number = 1;
   private previousPage: number = 0;
   private nextPage: number = 2;
-  private accessPage: number = 0;
 
   @ViewChild(BoxPersonageComponent)
   modalResult: BoxPersonageComponent;
@@ -64,7 +60,6 @@ export class GameComponent implements OnInit {
 
   setPontuation(reply, personage) {
     if (reply.toUpperCase() == personage.toUpperCase()) {
-      this.repliedCorrect = true;
       if (this.helpUsed) {
         this.pontuation += 5;
         this.helpUsed = false;
