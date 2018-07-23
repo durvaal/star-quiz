@@ -59,7 +59,8 @@
 </div>
 
 <!-- Modal Result -->
-<div class="modal fade" data-keyboard="false" data-backdrop="static" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-keyboard="false" data-backdrop="static" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -68,7 +69,8 @@
 			<div id="modal-result" class="modal-body">
 				<div class="jumbotron">
 					<p>Parabéns, jovem Jedi!</p>
-					<span>{{ pontuation }}</span><br>
+					<span>{{ pontuation }}</span>
+					<br>
 					<span>{{ pontuation > 1 ? ' pontos' : ' ponto' }}</span>
 				</div>
 				<p>Preencha o formulário abaixo para salvar sua pontuação:</p>
@@ -81,6 +83,7 @@
 					<input type="email" class="form-control" formControlName="email" id="email" placeholder="darth.vader@starwars.com">
 
 					<button class="btn btn-success btn-block" data-dismiss="modal" aria-label="Close" (click)="saveResult()" [disabled]="!form.valid">Salvar</button>
+
 					<button class="btn btn-info btn-block" data-dismiss="modal" aria-label="Close" (click)="playAgain()">Jogar novamente</button>
 				</form>
 			</div>
@@ -89,7 +92,8 @@
 </div>
 
 <!-- Modal Next -->
-<div class="modal fade" data-keyboard="false" data-backdrop="static" id="modalNext" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-keyboard="false" data-backdrop="static" id="modalNext" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -97,7 +101,42 @@
 			</div>
 			<div class="modal-body">
 				<button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close" (click)="playAgain()">Jogar Novamente</button>
-				<button class="btn btn-info btn-block">Ranking</button>
+				<button class="btn btn-info btn-block" data-dismiss="modal" aria-label="Close" (click)="openRanking()">Ver Ranking</button>
+				<button class="btn btn-danger btn-block" data-dismiss="modal" aria-label="Close" [routerLink]="['/home']" routerLinkActive="active">Sair</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Ranking -->
+<div class="modal fade" data-keyboard="false" data-backdrop="static" id="modalRanking" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Os melhores!</h5>
+			</div>
+			<div class="modal-body">
+				<img src="assets/img/ranking.png" alt="Ranking">
+
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<th class="title-detail"></th>
+							<th class="title-detail">Nome</th>
+							<th class="title-detail">Pontuação</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let result of results; let i = index">
+							<td *ngIf="i < 3">{{ i+1 }} °</td>
+							<td *ngIf="i < 3">{{ result["name"] }}</td>
+							<td *ngIf="i < 3">{{ result["pontuation"] }}</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close" (click)="playAgain()">Jogar Novamente</button>
 				<button class="btn btn-danger btn-block" data-dismiss="modal" aria-label="Close" [routerLink]="['/home']" routerLinkActive="active">Sair</button>
 			</div>
 		</div>

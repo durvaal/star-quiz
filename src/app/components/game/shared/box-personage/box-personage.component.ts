@@ -19,6 +19,7 @@ export class BoxPersonageComponent implements OnInit {
   @Input() personage;
   @ViewChild("modalResult") private modalResult;
   @ViewChild("modalNext") private modalNext;
+  @ViewChild("modalRanking") private modalRanking;
 
   constructor() { }
 
@@ -51,6 +52,10 @@ export class BoxPersonageComponent implements OnInit {
     this.result = result;
     this.modalResult.c
     this.modalResult.nativeElement.click();
+  }
+
+  openModalRanking() {
+    this.modalRanking.nativeElement.click();
   }
 
   openModalNext(open) {

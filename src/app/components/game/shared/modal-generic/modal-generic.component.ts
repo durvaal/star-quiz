@@ -13,6 +13,7 @@ export class ModalGenericComponent implements OnInit {
   @Input() personageDetail;
   @Input() pontuation;
   @Output() openModalNext = new EventEmitter();
+  @Output() openModalRanking = new EventEmitter();
   @Output() reloadGame = new EventEmitter();
 
   constructor() { 
@@ -52,6 +53,10 @@ export class ModalGenericComponent implements OnInit {
     this.results.push(result);
     this.setLocalStorage("results", this.results);
     this.openModalNext.emit(true);
+  }
+
+  openRanking() {
+    this.openModalRanking.emit(true);
   }
 
   getResults() {

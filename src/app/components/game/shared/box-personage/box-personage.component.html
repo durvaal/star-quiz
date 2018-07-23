@@ -17,8 +17,10 @@
       <button class="button-none" type="button" #modalResult data-toggle="modal" data-target="#modalResult"></button>
 
       <button class="button-none" type="button" #modalNext data-toggle="modal" data-target="#modalNext"></button>
+
+      <button class="button-none" type="button" #modalRanking data-toggle="modal" data-target="#modalRanking"></button>
     </form>
   </div>
 </div>
 
-<app-modal-generic [personageDetail]="personageDetail" [pontuation]="result" (openModalNext)="openModalNext($event)" (reloadGame)="playAgain($event)"></app-modal-generic>
+<app-modal-generic [personageDetail]="personageDetail" [pontuation]="result" (openModalNext)="openModalNext($event)" (openModalRanking)="openModalRanking($event)" (reloadGame)="playAgain($event)"></app-modal-generic>
