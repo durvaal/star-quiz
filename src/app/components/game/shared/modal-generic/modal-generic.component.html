@@ -9,7 +9,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<img src="assets/img/darth-vader.png" alt="Mask Darth Vader">
+				<img src="assets/img/resume.png" alt="Details of personage">
 
 				<table class="table table-hover table-bordered">
 					<thead>
@@ -83,7 +83,6 @@
 					<input type="email" class="form-control" formControlName="email" id="email" placeholder="darth.vader@starwars.com">
 
 					<button class="btn btn-success btn-block" data-dismiss="modal" aria-label="Close" (click)="saveResult()" [disabled]="!form.valid">Salvar</button>
-
 					<button class="btn btn-info btn-block" data-dismiss="modal" aria-label="Close" (click)="playAgain()">Jogar novamente</button>
 				</form>
 			</div>
@@ -100,9 +99,9 @@
 				<h5 class="modal-title" id="exampleModalLabel">{{ name }}, você ainda pode!</h5>
 			</div>
 			<div class="modal-body">
+				<img src="assets/img/choice.png" alt="Next step">
 				<button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close" (click)="playAgain()">Jogar Novamente</button>
 				<button class="btn btn-info btn-block" data-dismiss="modal" aria-label="Close" (click)="openRanking()">Ver Ranking</button>
-				<button class="btn btn-danger btn-block" data-dismiss="modal" aria-label="Close" [routerLink]="['/home']" routerLinkActive="active">Sair</button>
 			</div>
 		</div>
 	</div>
@@ -137,7 +136,6 @@
 				</table>
 
 				<button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close" (click)="playAgain()">Jogar Novamente</button>
-				<button class="btn btn-danger btn-block" data-dismiss="modal" aria-label="Close" [routerLink]="['/home']" routerLinkActive="active">Sair</button>
 			</div>
 		</div>
 	</div>
