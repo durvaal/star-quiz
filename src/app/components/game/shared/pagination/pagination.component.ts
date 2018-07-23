@@ -18,14 +18,17 @@ export class PaginationComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Send the emition of event for the Component GameComponent
   previousPersonage() {
     this.previous.emit();
   }
 
+  // Send the emition of event for the Component GameComponent
   nextPersonage() {
     this.next.emit();
   }
 
+  // Send the emition of event for the Component GameComponent
   setPage(page) {
     this.selectPage.emit(page);
   }

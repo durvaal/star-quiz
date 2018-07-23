@@ -1,26 +1,33 @@
 <div class="card person">
+  <!-- Show feedback to player about the reply send -->
   <img src="assets/img/done.png" class="feedback-reply" [ngClass]="{ 'success': reply == true ? true : false }" alt="Success reply">
   <img src="assets/img/error.png" class="feedback-reply" [ngClass]="{ 'error': reply == false ? true : false }" alt="Error reply">
+  <!-- Define the src attribute dynamically -->
   <img [src]="pathImage[0]['path_image']" class="card-img-top img-personage" alt="Card image cap">
   <div class="card-body">
     <form [formGroup]="form">
-      <input type="text" [ngClass]="{ 'disabled-input': reply == true ? true : false }" placeholder="Nome do personagem" class="form-control" formControlName="reply">
+      <!-- Disable the button and input if the reply is correct -->
+      <input type="text" [ngClass]="{ 'disabled-input': reply == true ? true : false }" placeholder="Nome do personagem" class="form-control"
+        formControlName="reply">
 
-      <button type="button" class="btn btn-success action-quiz" [ngClass]="{ 'disabled-button': reply == true ? true : false }" (click)="setPontuation()" [disabled]="!form.valid">
+      <button type="button" class="btn btn-success action-quiz" [ngClass]="{ 'disabled-button': reply == true ? true : false }"
+        (click)="setPontuation()" [disabled]="!form.valid">
         <img src="assets/img/pencil.png" alt="Reply quiz">
       </button>
 
+      <!-- Open modal of details and show some informations -->
       <button type="button" class="btn btn-info action-quiz" (click)="setDetail()" data-toggle="modal" data-target="#modalDatails">
         <img src="assets/img/loupe.png" alt="Detail person">
       </button>
 
+      <!-- Open your respective  modals -->
       <button class="button-none" type="button" #modalResult data-toggle="modal" data-target="#modalResult"></button>
-
       <button class="button-none" type="button" #modalNext data-toggle="modal" data-target="#modalNext"></button>
-
       <button class="button-none" type="button" #modalRanking data-toggle="modal" data-target="#modalRanking"></button>
     </form>
   </div>
 </div>
 
-<app-modal-generic [personageDetail]="personageDetail" [pontuation]="result" (openModalNext)="openModalNext($event)" (openModalRanking)="openModalRanking($event)" (reloadGame)="playAgain($event)"></app-modal-generic>
+<!-- Call the ModalGenericComponent  -->
+<app-modal-generic [personageDetail]="personageDetail" [pontuation]="result" (openModalNext)="openModalNext($event)" (openModalRanking)="openModalRanking($event)"
+  (reloadGame)="playAgain($event)"></app-modal-generic>

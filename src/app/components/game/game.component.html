@@ -23,10 +23,11 @@
 	</p>
 
 	<div class="row">
-		<app-box-personage class="col" (pontuation)="setPontuation($event, personage['name'])" (details)="setDetail($event)" 
-		(reloadGame)="cronometro()" [personageDetail]="personage"
-		 *ngFor="let personage of personages[0]" [pathImage]=[personage] [personage]=[personage]></app-box-personage>
+		<!-- Here is the main part that join this component with BoxPersonageComponent -->
+		<app-box-personage class="col" (pontuation)="setPontuation($event, personage['name'])" (details)="setDetail($event)" (reloadGame)="cronometro()"
+		 [personageDetail]="personage" *ngFor="let personage of personages[0]" [pathImage]=[personage] [personage]=[personage]></app-box-personage>
 	</div>
 </section>
 
+<!-- Here is the component PaginationComponent responsabily by to make the pagination of the game -->
 <app-pagination (previous)="previousPersonage()" (next)="nextPersonage()" (selectPage)="setPage($event)" [actualPage]="actualPage"></app-pagination>

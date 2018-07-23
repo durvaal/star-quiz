@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+  // Phrase that load on start
   private phraseDarth: Array<any> = [
     { frase: "Sua falta de fé é perturbadora.", author: "Darth Vader" },
     { frase: "Luke, eu sou seu pai!", author: "Darth Vader" },
@@ -16,12 +17,14 @@ export class WelcomeComponent implements OnInit {
   ];
 
   private showPhrase = this.phraseDarth[0]; 
+
   constructor() { }
 
   ngOnInit() {
     this.setPhrase();
   }
 
+  // Set a phrase
   setPhrase() {
     let count = 1;
     const interval = window.setInterval(() => {

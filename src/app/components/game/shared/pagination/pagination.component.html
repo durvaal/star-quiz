@@ -1,7 +1,6 @@
 <nav>
 	<ul class="pagination justify-content-center">
 		<li class="page-item" [ngClass]="{'disabled' : actualPage == 1 ? true : false}">
-			<!-- disabled -->
 			<button class="page-link" (click)="previousPersonage()">&laquo;</button>
 		</li>
 		<li class="page-item" [ngClass]="{'active' : actualPage == 1 ? true : false}">

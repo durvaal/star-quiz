@@ -24,10 +24,11 @@ export class GameComponent implements OnInit {
   constructor(private service: GenericServiceService) { }
 
   ngOnInit() {
-    this.cronometro();
-    this.getPersonages(this.actualPage);
+    this.cronometro(); // Start the clock
+    this.getPersonages(this.actualPage); // Load the personages by page
   }
 
+  // Method main of the game. Get the personages and set the respective image his
   getPersonages(actualPage): void {
     this.personages = [];
     let path = `assets/img/personage/page${actualPage}/`;
@@ -39,7 +40,8 @@ export class GameComponent implements OnInit {
           this.personages[0].pop();
           this.personages[0].pop();
 
-          if (this.actualPage < 9) {
+          // I use the name of the image like this, because is more easy of set for all
+          if (this.actualPage < 9) { 
             this.personages[0][0]["path_image"] = path + "01-min.jpg";
             this.personages[0][1]["path_image"] = path + "02-min.jpg";
             this.personages[0][2]["path_image"] = path + "03-min.jpg";
@@ -48,7 +50,7 @@ export class GameComponent implements OnInit {
             this.personages[0][5]["path_image"] = path + "06-min.jpg";
             this.personages[0][6]["path_image"] = path + "07-min.jpg";
             this.personages[0][7]["path_image"] = path + "08-min.jpg";
-          } else {
+          } else { // The last page of the API don't have 8 personages
             this.personages[0][0]["path_image"] = path + "01-min.jpg";
             this.personages[0][1]["path_image"] = path + "02-min.jpg";
             this.personages[0][2]["path_image"] = path + "03-min.jpg";
@@ -59,6 +61,7 @@ export class GameComponent implements OnInit {
       )
   }
 
+  // This method set pontuation on scoreboard
   setPontuation(reply, personage) {
     if (reply.toUpperCase() == personage.toUpperCase()) {
       if (this.helpUsed) {
@@ -70,6 +73,7 @@ export class GameComponent implements OnInit {
     }
   }
 
+  // If the player to see the details the pontuation is set for 5
   setDetail(status) {
     if (status) this.helpUsed = status;
   }
@@ -100,6 +104,7 @@ export class GameComponent implements OnInit {
     }, 1000);
   }
 
+  // Method for pagination. Navigation previous
   previousPersonage() {
     if (this.actualPage > 1) {
       this.previousPage--;
@@ -110,6 +115,7 @@ export class GameComponent implements OnInit {
     }
   }
 
+  // Method for pagination. Navigation next
   nextPersonage() {
     this.nextPage++;
     this.previousPage = this.actualPage;
@@ -118,6 +124,7 @@ export class GameComponent implements OnInit {
     this.getPersonages(this.actualPage);
   }
 
+  // Case the player click some option of the pagination
   setPage(page) {
     this.actualPage = page;
     this.nextPage = page += 1;

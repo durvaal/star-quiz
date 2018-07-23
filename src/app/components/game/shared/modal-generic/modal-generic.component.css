@@ -1,7 +1,7 @@
 img {
+    display: block;
     margin: 30px auto;
     width: 30%;
-    display: block;
 }
 
 td {
@@ -40,14 +40,11 @@ span:nth-child(2) {
 }
 
 p {
-    text-align: center;
     font-weight: bold;
     font-size: 13pt;
+    text-align: center;
 }
 
 input {
     margin-bottom: 10px;
 }
-
-
-/* #modal-result > p {} */

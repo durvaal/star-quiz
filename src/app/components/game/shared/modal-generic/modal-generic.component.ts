@@ -16,7 +16,7 @@ export class ModalGenericComponent implements OnInit {
   @Output() openModalRanking = new EventEmitter();
   @Output() reloadGame = new EventEmitter();
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {
@@ -35,14 +35,17 @@ export class ModalGenericComponent implements OnInit {
     return this.form.get("name").value;
   }
 
+  // Get the values save in localstorage
   getLocalStorage(key: string) {
     JSON.parse(localStorage.getItem('key') || '[]');
   }
 
+  // Set the values of form in localstorage
   setLocalStorage(key: string, value: Object) {
     localStorage.setItem(key, JSON.stringify(value))
   }
 
+  // Use the method of save the values of form in localstorage
   saveResult() {
     const result = {
       name: this.form.get("name").value,
@@ -55,14 +58,17 @@ export class ModalGenericComponent implements OnInit {
     this.openModalNext.emit(true);
   }
 
-  openRanking() {
-    this.openModalRanking.emit(true);
-  }
-
+  // Get values save in localStorage and add in array od results
   getResults() {
     this.results = JSON.parse(localStorage.getItem('results') || '[]');
   }
 
+  // Send a event for BoxPersonageComponent to abrir the modal
+  openRanking() {
+    this.openModalRanking.emit(true);
+  }
+
+  // Send a event for BoxPersonageComponent to restart the game
   playAgain() {
     this.clearForm();
     this.reloadGame.emit();
