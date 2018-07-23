@@ -19,3 +19,29 @@ input {
 .img-personage {
     height: 350px;
 }
+
+.disabled-input {
+    background-color: #E9ECEF;
+    pointer-events: none;
+}
+
+.disabled-button {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.feedback-reply {
+    display: none;
+    left: 232px;
+    position: absolute;
+    top: -22px;
+    width: 26%;
+}
+
+.success {
+    display: block;
+}
+
+.error {
+    display: block;
+}

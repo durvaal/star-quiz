@@ -1,10 +1,12 @@
 <div class="card person">
-  <img class="card-img-top img-personage" [src]="pathImage[0]['path_image']" alt="Card image cap">
+  <img src="assets/img/done.png" class="feedback-reply" [ngClass]="{ 'success': reply == true ? true : false }" alt="Success reply">
+  <img src="assets/img/error.png" class="feedback-reply" [ngClass]="{ 'error': reply == false ? true : false }" alt="Error reply">
+  <img [src]="pathImage[0]['path_image']" class="card-img-top img-personage" alt="Card image cap">
   <div class="card-body">
     <form [formGroup]="form">
-      <input type="text" placeholder="Nome do personagem" class="form-control" formControlName="reply">
+      <input type="text" [ngClass]="{ 'disabled-input': reply == true ? true : false }" placeholder="Nome do personagem" class="form-control" formControlName="reply">
 
-      <button type="button" class="btn btn-success action-quiz" (click)="setPontuation()" [disabled]="!form.valid">
+      <button type="button" class="btn btn-success action-quiz" [ngClass]="{ 'disabled-button': reply == true ? true : false }" (click)="setPontuation()" [disabled]="!form.valid">
         <img src="assets/img/pencil.png" alt="Reply quiz">
       </button>
 
